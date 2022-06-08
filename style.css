@@ -1,11 +1,10 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
     background: hsla(197, 100%, 63%, 1);
     background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);
+    font-family: 'Roboto Slab', serif;
 }
 
 h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
 }
 
@@ -26,7 +25,7 @@ main {
     background-color: #353535;
     border-radius: 15px;
     padding: 10px;
-    height: 500px;
+    height: auto;
     width: 400px;
 }
 
@@ -34,29 +33,34 @@ main {
     background: linear-gradient(90deg, rgb(104, 252, 104) 0%, rgb(255, 255, 77) 100%);
     color: #353535;
     border-radius: 5px;
-    padding: 10px;
+    /* padding: 10px; */
+    /* font-family: "Audiowide", sans-serif; */
+    font-family: 'Share Tech Mono', monospace;
 }
 
 #history-input {
     align-self: flex-start;
     font-size: larger;
     font-weight: 400;
-    margin: 0.35rem 0;
+    margin: 0;
+    padding: 4px;
 }
 
 #result {
     align-self: flex-end;
     font-size: xx-large;
+    font-stretch: wider;
     font-weight: 800;
-    margin: 0.35rem 0;
+    margin: 0;
+    padding: 7px;
 }
 
 #keys-grid {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
-    padding: 10px;
-    height: 450px;
+    gap: 3px;
+    padding: 3px;
+    height: 300px;
     margin-top: 13px;
 }
 
@@ -64,9 +68,11 @@ main {
     border-radius: 5%;
     color: #FFF;
     font-weight: 800;
-    font-size: larger;
+    font-size: x-large;
     opacity: 0.75;
     transition: 0.2s;
+    padding: 0;
+    font-family: 'Share Tech Mono', monospace;
 }
 
 .calc-btn:hover {
@@ -76,7 +82,7 @@ main {
 
 .calc-btn:active {
     box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    transform: translateY(1.5px);
 }
 
 .num-btn {
@@ -95,4 +101,9 @@ main {
 #equals-btn {
     grid-column: 4/5;
     grid-row: 4/6;
+}
+
+#num0-btn {
+    grid-column: 1/3;
+    grid-row: 5/6;
 }

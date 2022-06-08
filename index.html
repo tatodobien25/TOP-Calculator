@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator by tatodobien25</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto+Slab:wght@300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -18,9 +24,7 @@
         <main class="flex-container">
             <div class="flex-container" id="calculator-body">
                 <div class="flex-container" id="calculator-screen">
-                    <p id="history-input"></p>
-                    <p id="result">0</p>
-
+                    <span id="result">0</span>
                 </div>
                 <div class="grid-container" id="keys-grid">
                     <button type="button" name="clear-btn" class="calc-btn sym-btn" id="clear-btn">CLEAR</button>
@@ -29,8 +33,8 @@
                         id="multiply-by-btn">*</button>
                     <button type="button" name="minus-btn" class="calc-btn sym-btn" id="minus-btn">-</button>
                     <button type="button" name="num7-btn" class="calc-btn num-btn " id="num7-btn">7</button>
-                    <button type="button" name="num8-btn" class=" calc-btn num-btn " id=" num8-btn">8</button>
-                    <button type="button" name="num9-btn" class=" calc-btn num-btn " id=" num9-btn">9</button>
+                    <button type="button" name="num8-btn" class=" calc-btn num-btn " id="num8-btn">8</button>
+                    <button type="button" name="num9-btn" class=" calc-btn num-btn " id="num9-btn">9</button>
                     <button type="button" name="plus-btn" class="calc-btn sym-btn" id="plus-btn">+</button>
                     <button type="button" name="num4-btn" class="calc-btn num-btn" id="num4-btn">4</button>
                     <button type="button" name="num5-btn" class="calc-btn num-btn" id="num5-btn">5</button>
@@ -39,11 +43,10 @@
                     <button type="button" name="num2-btn" class=" calc-btn num-btn" id="num2-btn">2</button>
                     <button type="button" name="num3-btn" class="calc-btn num-btn" id="num3-btn">3</button>
                     <button type="button" name="equals-btn" class="calc-btn sym-btn " id="equals-btn">=</button>
-                    <button type="button" name="sign-change-btn" class="calc-btn sym-btn " id="sign-change-btn"
-                        disabled>+/-</button>
+                    <!-- <button type="button" name="sign-change-btn" class="calc-btn sym-btn " id="sign-change-btn"
+                        disabled>+/-</button> -->
                     <button type="button" name="num0-btn" class="calc-btn num-btn" id="num0-btn">0</button>
-                    <button type="button" name="dec-point-btn" class="calc-btn sym-btn" id="dec-point-btn"
-                        disabled>.</button>
+                    <button type="button" name="dec-point-btn" class="calc-btn sym-btn" id="dec-point-btn">.</button>
                 </div>
             </div>
         </main>

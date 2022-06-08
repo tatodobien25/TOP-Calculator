@@ -11,7 +11,11 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+    if (num2 === 0) {
+        return `Snarky error!`;
+    }
     return num1 / num2;
+
 }
 
 function operate(operator, num1, num2) {
@@ -23,57 +27,86 @@ function operate(operator, num1, num2) {
         return multiply(num1, num2);
     } else if (operator === '/') {
         return divide(num1, num2);
-    } else {
-        return 'Operator is not valid';
     }
 }
 
 function numberClickHandler(e) {
     if (operator === '') {
-        firstOperand += this.textContent;
+        if (firstOperand.length < 16) {
+            firstOperand += this.textContent;
+        }
         resultsDisplay.textContent = firstOperand;
     } else {
-        secondOperand += this.textContent;
-        historyDisplay.textContent = firstOperand + operator;
+        if (secondOperand.length < 16) {
+            secondOperand += this.textContent;
+        }
         resultsDisplay.textContent = secondOperand;
     }
 }
 
 function operatorClickHandler(e) {
-    // console.log(this.textContent);
     if (operator === '') {
         operator = this.textContent;
-    } else return;
+        if (resultsDisplay.textContent != '' && firstOperand === '') {
+            firstOperand = resultsDisplay.textContent;
+        }
+    } else {
+
+        firstOperand = operate(operator, +firstOperand, +secondOperand).toString();
+        resultsDisplay.textContent = firstOperand;
+        secondOperand = '';
+        operator = this.textContent;
+    }
 }
 
 function equalsClickHandler(e) {
     if (operator === '') {
         return;
     } else {
-        historyDisplay.textContent = firstOperand + operator + secondOperand;
         resultsDisplay.textContent = operate(operator, +firstOperand, +secondOperand).toString();
+        operator = '';
+        firstOperand = '';
+        secondOperand = '';
     }
 }
 function clearClickHandler(e) {
     operator = '';
     firstOperand = '';
     secondOperand = '';
-    historyDisplay.textContent = '';
     resultsDisplay.textContent = '0';
 }
 
+function decPointClickHandler(e) {
+    if (resultsDisplay.textContent.indexOf('.') != -1) return;
+    if (operator === '') {
+        if (firstOperand.length < 16) {
+            firstOperand += this.textContent;
+        }
+        resultsDisplay.textContent = firstOperand;
+    } else {
+        if (secondOperand.length < 16) {
+            secondOperand += this.textContent;
+        }
+        resultsDisplay.textContent = secondOperand;
+    }
+
+}
+
+const allCalcKeys = Array.from(document.querySelectorAll('.calc-btn'));
 const numberKeys = Array.from(document.querySelectorAll('.num-btn'));
-const historyDisplay = document.getElementById('history-input');
 const resultsDisplay = document.getElementById('result');
 const operatorKeys = [document.getElementById('minus-btn'), document.getElementById('plus-btn'),
 document.getElementById('divide-by-btn'), document.getElementById('multiply-by-btn')];
 const equalsKey = document.getElementById('equals-btn');
 const clearKey = document.getElementById('clear-btn');
+const decPointKey = document.getElementById('dec-point-btn');
 let firstOperand = '';
 let secondOperand = '';
 let operator = '';
+
 
 numberKeys.forEach(key => key.addEventListener('click', numberClickHandler));
 operatorKeys.forEach(key => key.addEventListener('click', operatorClickHandler));
 equalsKey.addEventListener('click', equalsClickHandler);
 clearKey.addEventListener('click', clearClickHandler);
+decPointKey.addEventListener('click', decPointClickHandler);
